@@ -27,6 +27,7 @@ const functionsCommand = require('../commands/functions');
 const listCommand = require('../commands/list');
 const openCommand = require('../commands/open');
 const mvCommand = require('../commands/mv');
+const configCommand = require('../commands/config');
 
 const notifier = updateNotifier({ pkg: { ...pkg, name: '@hubspot/cli' } });
 
@@ -80,6 +81,7 @@ const argv = yargs
   })
   .command(openCommand)
   .command(mvCommand)
+  .command(configCommand)
   .help()
   .recommendCommands()
   .demandCommand(1, '')
