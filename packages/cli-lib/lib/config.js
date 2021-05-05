@@ -586,6 +586,23 @@ const updateHttpTimeout = timeout => {
 /**
  * @throws {Error}
  */
+const updateAllowUsageTracking = isEnabled => {
+  if (typeof isEnabled !== 'boolean') {
+    throw new Error(
+      `Unable to update allowUsageTracking. The value ${isEnabled} is invalid. The value must be a boolean.`
+    );
+  }
+
+  const config = getAndLoadConfigIfNeeded();
+  config.allowUsageTracking = isEnabled;
+
+  setDefaultConfigPathIfUnset();
+  writeConfig();
+};
+
+/**
+ * @throws {Error}
+ */
 const renameAccount = async (currentName, newName) => {
   const accountId = getAccountId(currentName);
   const accountConfigToRename = getAccountConfig(accountId);
@@ -778,6 +795,7 @@ module.exports = {
   updateDefaultAccount,
   updateDefaultMode,
   updateHttpTimeout,
+  updateAllowUsageTracking,
   renameAccount,
   createEmptyConfigFile,
   deleteEmptyConfigFile,
