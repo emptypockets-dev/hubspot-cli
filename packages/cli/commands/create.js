@@ -9,6 +9,7 @@ const { createProject } = require('@hubspot/cli-lib/projects');
 const { createFunction } = require('@hubspot/cli-lib/functions');
 const { GITHUB_RELEASE_TYPES } = require('@hubspot/cli-lib/lib/constants');
 const { fetchJsonFromRepository } = require('@hubspot/cli-lib/github');
+const { commaSeparatedValues } = require('@hubspot/cli-lib/lib/text');
 
 const { setLogLevel, getAccountId } = require('../lib/commonOpts');
 const { logDebugInfo } = require('../lib/debugInfo');
@@ -21,7 +22,6 @@ const {
   createApiSamplePrompt,
   overwriteSamplePrompt,
 } = require('../lib/createApiSamplePrompt');
-const { commaSeparatedValues } = require('../lib/text');
 
 const TYPES = {
   function: 'function',
