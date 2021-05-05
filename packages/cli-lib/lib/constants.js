@@ -104,6 +104,8 @@ const GITHUB_RELEASE_TYPES = {
   REPOSITORY: 'repository',
 };
 
+const MIN_HTTP_TIMEOUT = 3000;
+
 module.exports = {
   Mode,
   ENVIRONMENTS,
@@ -127,4 +129,5 @@ module.exports = {
   FOLDER_DOT_EXTENSIONS,
   POLLING_DELAY,
   GITHUB_RELEASE_TYPES,
+  MIN_HTTP_TIMEOUT,
 };
