@@ -16,9 +16,11 @@ const ALLOWED_EXTENSIONS = new Set([
   'gif',
   'map',
   'svg',
+  'eot',
   'ttf',
   'woff',
   'woff2',
+  'graphql',
 ]);
 const HUBL_EXTENSIONS = new Set(['css', 'html', 'js']);
 const MODULE_EXTENSION = 'module';
@@ -106,7 +108,12 @@ const GITHUB_RELEASE_TYPES = {
 
 const MIN_HTTP_TIMEOUT = 3000;
 
+const ConfigFlags = {
+  USE_CUSTOM_OBJECT_HUBFILE: 'useCustomObjectHubfile',
+};
+
 module.exports = {
+  ConfigFlags,
   Mode,
   ENVIRONMENTS,
   ALLOWED_EXTENSIONS,

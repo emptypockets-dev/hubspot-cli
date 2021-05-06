@@ -10,6 +10,7 @@ const { setLogLevel, getCommandName } = require('../lib/commonOpts');
 const { trackHelpUsage } = require('../lib/usageTracking');
 const pkg = require('../package.json');
 
+const appCommand = require('../commands/app');
 const removeCommand = require('../commands/remove');
 const initCommand = require('../commands/init');
 const logsCommand = require('../commands/logs');
@@ -29,6 +30,7 @@ const openCommand = require('../commands/open');
 const mvCommand = require('../commands/mv');
 const configCommand = require('../commands/config');
 const accountsCommand = require('../commands/accounts');
+const projectsCommand = require('../commands/projects');
 
 const notifier = updateNotifier({ pkg: { ...pkg, name: '@hubspot/cli' } });
 
@@ -42,7 +44,7 @@ notifier.notify({
 });
 
 const argv = yargs
-  .usage('Tools for working with the HubSpot')
+  .usage('Tools for working with HubSpot')
   .middleware([setLogLevel])
   .exitProcess(false)
   .fail((msg, err, yargs) => {
@@ -62,6 +64,7 @@ const argv = yargs
     describe: 'set log level to debug',
     type: 'boolean',
   })
+  .command(appCommand)
   .command(authCommand)
   .command(initCommand)
   .command(logsCommand)
@@ -84,6 +87,7 @@ const argv = yargs
   .command(mvCommand)
   .command(configCommand)
   .command(accountsCommand)
+  .command(projectsCommand)
   .help()
   .recommendCommands()
   .demandCommand(1, '')
